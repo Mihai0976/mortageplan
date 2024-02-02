@@ -5,6 +5,15 @@ public class Prospect {
     private double totalLoanAmount;
     private double yearlyInterestRate;
     private int loanPeriod;
+    private double monthlyPayment;
+
+    public double getMonthlyPayment() {
+        return monthlyPayment;
+    }
+
+    public void setMonthlyPayment(double monthlyPayment) {
+        this.monthlyPayment = monthlyPayment;
+    }
 
     public String getCustomerName() {
         return customerName;

@@ -1,0 +1,54 @@
+<!-- src/main/resources/templates/index.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MoneyBin - Prospect Calculator</title>
+</head>
+<body>
+<h2>Prospect Calculations</h2>
+
+<!-- Display existing prospect calculations -->
+<table border="1">
+    <thead>
+    <tr>
+        <th>Customer Name</th>
+        <th>Total Loan Amount</th>
+        <th>Yearly Interest Rate</th>
+        <th>Loan Period (Years)</th>
+        <th>Monthly Payment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Loop through prospects and display data -->
+    <tr th:each="prospect : ${prospects}">
+        <td th:text="${prospect.customerName}"></td>
+        <td th:text="${prospect.totalLoanAmount}"></td>
+        <td th:text="${prospect.yearlyInterestRate}"></td>
+        <td th:text="${prospect.loanPeriod}"></td>
+        <td th:text="${prospect.monthlyPayment}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<br/>
+
+<!-- Form for entering new prospect data -->
+<h2>Enter New Prospect Data</h2>
+<form action="/calculate" method="post" th:object="${newProspect}">
+    <label for="customerName">Customer Name:</label>
+    <input type="text" id="customerName" name="customerName" required>
+
+    <label for="totalLoanAmount">Total Loan Amount:</label>
+    <input type="number" id="totalLoanAmount" name="totalLoanAmount" required>
+
+    <label for="yearlyInterestRate">Yearly Interest Rate:</label>
+    <input type="number" step="0.01" id="yearlyInterestRate" name="yearlyInterestRate" required>
+
+    <label for="loanPeriod">Loan Period (Years):</label>
+    <input type="number" id="loanPeriod" name="loanPeriod" required>
+
+    <button type="submit">Calculate</button>
+</form>
+</body>
+</html>
