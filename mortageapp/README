@@ -1,0 +1,38 @@
+# MoneyBin - Mortgage Plan Application
+
+## Overview
+The MoneyBin Mortgage Plan Application is a web-based calculator designed to help users determine their monthly payments for a mortgage based on loan amount, interest rate, and repayment period. Users can enter their loan details to see how much they need to pay each month.
+
+## Features
+- Calculate monthly mortgage payments
+- Input fields for loan amount, interest rate, and loan period
+- Clear and user-friendly web interface
+
+## Getting Started with Docker
+
+### Prerequisites
+- Docker installed on your system
+
+### Building the Docker Image
+To build the Docker image for the application, navigate to the project root directory and run:
+docker build -t myapp:latest .
+
+
+### Running the Application
+Run the application using:
+docker run -p 8080:8080 myapp:latest
+
+Access the application by navigating to `http://localhost:8080` in your web browser.
+
+
+## Accessing the Application
+
+The application is hosted on AWS and can be accessed through the following URL:
+
+[http://myapp-env.eba-2uin4aat.eu-west-1.elasticbeanstalk.com/web/view](http://myapp-env.eba-2uin4aat.eu-west-1.elasticbeanstalk.com/web/view)
+
+## Stopping the Application
+To stop the application, press CTRL+C if running in the foreground. Alternatively, use `docker ps` to find the container ID and stop it with `docker stop <container_id>`.
+
+## Feedback
+For any feedback or issues, please open an issue on the GitHub repository or contact the development team.
