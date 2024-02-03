@@ -3,39 +3,66 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>MoneyBin - Prospect Calculator</title>
+    <title >MoneyBin - Loan Calculator</title>
+    <style>
+        body {
+            background-color: #007bff; /* A nice shade of blue */
+            color: #ffffff; /* White text color for better contrast */
+            font-family: Arial, sans-serif; /* Making the font a little more modern */
+            padding: 20px; /* Adding some padding to the body */
+        }
+        form {
+            background-color: #0000D1;
+            padding: 20px;
+            border-radius: 5px;
+            color: #333333; /* Dark text color for the form */
+            max-width: 400px; /* Setting a max width for the form */
+            margin: auto; /* Centering the form */
+            height: 345px;
+        }
+        .form-row {
+            margin-bottom: 15px; /* Adding space between form rows */
+        }
+        label {
+            display: block; /* Making labels take up their own line */
+            margin-bottom: 5px; /* Space between label and input */
+            color: white;
+            margin-top: 10px;
+        }
+        input {
+            width: 200px; /* Making input fields take up the full width of the form-row */
+            padding: 10px; /* Adding some padding inside the input fields */
+            border: 1px solid #ced4da; /* A light gray border for the inputs */
+            border-radius: 4px; /* Slightly rounded corners for the inputs */
+        }
+        button {
+            background-color: white; /* A nice shade of green */
+            color: #0000D1;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 60px;
+        }
+        button:hover {
+            background-color: #007bff; /* Darken the button a bit when hovering */
+            color: white;
+        }
+        span{
+            background: white;
+            width: 150px;
+            padding:5px;
+            border-radius: 4px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+    </style>
+
 </head>
 <body>
-<h2>Prospect Calculations</h2>
-
-<!-- Display existing prospect calculations -->
-<table border="1">
-    <thead>
-    <tr>
-        <th>Customer Name</th>
-        <th>Total Loan Amount</th>
-        <th>Yearly Interest Rate</th>
-        <th>Loan Period (Years)</th>
-        <th>Monthly Payment</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!-- Loop through prospects and display data -->
-    <tr th:each="prospect : ${prospects}">
-        <td th:text="${prospect.customerName}"></td>
-        <td th:text="${prospect.totalLoanAmount}"></td>
-        <td th:text="${prospect.yearlyInterestRate}"></td>
-        <td th:text="${prospect.loanPeriod}"></td>
-        <td th:text="${prospect.monthlyPayment}"></td>
-    </tr>
-    </tbody>
-</table>
-
-<br/>
-
 <!-- Form for entering new prospect data -->
-<h2>Enter New Prospect Data</h2>
-<form action="/calculate" method="post" th:object="${newProspect}">
+<h2 style="color: white; margin-left:780px">MoneyBin - Loan Calculator</h2>
+<form method="post" th:object="${newProspect}"  th:action="@{/calculate}">
     <label for="customerName">Customer Name:</label>
     <input type="text" id="customerName" name="customerName" required>
 
@@ -48,7 +75,11 @@
     <label for="loanPeriod">Loan Period (Years):</label>
     <input type="number" id="loanPeriod" name="loanPeriod" required>
 
-    <button type="submit">Calculate</button>
+    <button type="submit" style="float: right;">Calculate</button>
+
+    <label >Monthly Payment:</label>
+    <span th:text="${newProspect != null ? newProspect.monthlyPayment : 'Not calculated yet'}"></span>
 </form>
 </body>
+
 </html>
