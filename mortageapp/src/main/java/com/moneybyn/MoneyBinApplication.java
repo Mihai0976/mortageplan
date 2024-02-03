@@ -1,10 +1,8 @@
 package com.moneybyn;
-
 import com.moneybyn.model.Prospect;
 import com.moneybyn.service.MortgageCalculatorService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -26,7 +24,7 @@ public class MoneyBinApplication {
 
     private static List<Prospect> readProspectsFromFile() {
         List<Prospect> prospects = new ArrayList<>();
-        String filePath = "src/main/resources/prospects.txt";
+        String filePath = "/app/prospects.txt";
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             // Skip the header line
@@ -50,3 +48,6 @@ public class MoneyBinApplication {
     }
 
 }
+
+
+
