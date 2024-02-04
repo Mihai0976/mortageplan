@@ -7,6 +7,8 @@ The MoneyBin Mortgage Plan Application is a web-based calculator designed to hel
 - Calculate monthly mortgage payments
 - Input fields for loan amount, interest rate, and loan period
 - Clear and user-friendly web interface
+- Reads from a text file prospect.txt and base on the values from the file is counting the monthly payment for 3 users and the prints the results in the console in this form:
+  #CustomerName wants to borrow X € for a period of Z years and pay E € each month
 
 ## Getting Started with Docker
 
