@@ -31,7 +31,7 @@ Access the application by navigating to `http://localhost:8080` in your web brow
 
 The application is hosted on AWS and can be accessed through the following URL:
 
-[http://myapp-env.eba-2uin4aat.eu-west-1.elasticbeanstalk.com/web/view](http://myapp-env.eba-2uin4aat.eu-west-1.elasticbeanstalk.com/web/view)
+http://myapp-env.eba-2uin4aat.eu-west-1.elasticbeanstalk.com/web/view
 
 ## Stopping the Application
 To stop the application, press CTRL+C if running in the foreground. Alternatively, use `docker ps` to find the container ID and stop it with `docker stop <container_id>`.
